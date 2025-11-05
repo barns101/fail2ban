@@ -1,0 +1,14 @@
+[sshd]
+# Enable SSH monitoring on a custom port
+port = 12345
+
+[apache-too-many-404s]
+# Ban hosts that make frequent requests that return a 404
+enabled  = false
+filter   = apache-too-many-404s
+port     = http,https
+backend  = auto
+logpath  = %(apache_access_log)s
+findtime = 5
+maxretry = 10
+bantime  = 600
